@@ -1,0 +1,21 @@
+#inventory-window {
+	position: relative;
+	overflow-y: scroll;
+	height: 680px;
+}
+
+#inventory-table {
+	position: absolute;
+	left: 135px;
+}
+
+.inventory-table td {
+	border: 6px dashed black;
+	border-radius: 12px 12px;
+	padding: 82px 12px 0px 12px;
+	width: 100px;
+	background-position: 24px 24px;
+	background-repeat: no-repeat;
+	text-align: right;
+	font-size: 30px;
+}

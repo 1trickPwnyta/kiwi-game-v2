@@ -1,0 +1,24 @@
+#shop-clerk {
+	width: 600px;
+	height: 600px;
+	background-image: url("../../images/sidebar/shop/shop-clerk.png");
+	background-size: 100%;
+	position: absolute;
+	left: 12px;
+	top: 100px;
+}
+
+#shop-inventory-window {
+	position: relative;
+	overflow-y: scroll;
+	height: 680px;
+}
+
+#shop-inventory-table {
+	position: absolute;
+	left: 624px;
+}
+
+#shop-inventory-table td {
+	cursor: hand;
+}

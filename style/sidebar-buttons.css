@@ -1,0 +1,66 @@
+.sidebar-button {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	cursor: hand;
+}
+
+#sidebar-coins {
+	left: 12px;
+	top: calc(50% - 400px);
+	background-image: url("../images/sidebar/sidebar-coins.png");
+	background-size: 100%;
+	text-align: right;
+	font-size: 40px;
+	cursor: inherit;
+}
+
+#sidebar-your-kiwi {
+	left: 12px;
+	top: calc(50% - 200px);
+	background-image: url("../images/sidebar/sidebar-your-kiwi.png");
+	background-size: 100%;
+}
+
+#sidebar-collection {
+	left: 224px;
+	top: calc(50% - 400px);
+	background-image: url("../images/sidebar/sidebar-collection.png");
+	background-size: 100%;
+}
+
+#sidebar-inventory {
+	left: 12px;
+	top: calc(50% + 0px);
+	background-image: url("../images/sidebar/sidebar-inventory.png");
+	background-size: 100%;
+}
+
+#sidebar-shop {
+	left: 224px;
+	top: calc(50% - 200px);
+	background-image: url("../images/sidebar/sidebar-shop.png");
+	background-size: 100%;
+}
+
+#sidebar-settings {
+	left: 224px;
+	top: calc(50% + 0px);
+	background-image: url("../images/sidebar/sidebar-settings.png");
+	background-size: 100%;
+}
+
+#sidebar-more {
+	left: 12px;
+	top: calc(50% + 200px);
+	background-image: url("../images/sidebar/sidebar-more.png");
+	background-size: 100%;
+}
+
+#sidebar-less {
+	left: 12px;
+	top: calc(50% + 200px);
+	background-image: url("../images/sidebar/sidebar-less.png");
+	background-size: 100%;
+	visibility: hidden;
+}

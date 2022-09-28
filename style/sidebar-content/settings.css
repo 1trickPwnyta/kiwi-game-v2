@@ -1,0 +1,12 @@
+#settings {
+	font-size: 30px;
+	text-align: left;
+	padding: 24px;
+}
+
+#settings select {
+	font-size: 30px;
+	font-family: "Permanent Marker";
+	border: 6px solid black;
+	border-radius: 12px 12px;
+}

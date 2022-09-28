@@ -1,0 +1,44 @@
+* {
+	color: black;
+}
+
+.happy {
+	color: green;
+}
+
+.sad {
+	color: red;
+}
+
+#game {
+	background-color: white;
+}
+
+#story {
+	background-color: white;
+}
+
+#explanation {
+	background-color: white;
+}
+
+#controls {
+	background-color: white;
+}
+
+#stats {
+	background-color: white;
+}
+
+#sidebar {
+	background-color: white;
+}
+
+#sidebar-back {
+	background-color: white;
+}
+
+#settings select, #settings option {
+	color: black;
+	background-color: white;
+}

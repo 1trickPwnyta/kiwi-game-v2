@@ -1,0 +1,49 @@
+#your-kiwi {
+	width: 600px;
+	height: 600px;
+	background-image: url("../../images/sidebar/your-kiwi/your-kiwi.png");
+	background-size: 100%;
+	position: absolute;
+	left: calc(50% - 300px);
+	top: 100px;
+}
+
+#your-kiwi-inventory-window {
+	position: absolute;
+	right: 12px;
+	overflow-y: scroll;
+	width: 308px;
+	height: 680px;
+}
+
+#your-kiwi-inventory-table td {
+	cursor: hand;
+}
+
+.placed-ornament {
+	position: absolute;
+}
+
+.your-kiwi-editor-button {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	cursor: hand;
+	border: 6px solid black;
+	border-radius: 50px 50px;
+	mix-blend-mode: multiply;
+}
+
+#depth-toggle {
+	left: 36px;
+	top: 112px;
+	background-image: url("../../images/sidebar/your-kiwi/depth-toggle.png");
+	background-size: 100%;
+}
+
+#remove-all-ornaments {
+	left: 36px;
+	top: 236px;
+	background-image: url("../../images/sidebar/your-kiwi/depth-toggle.png");
+	background-size: 100%;
+}

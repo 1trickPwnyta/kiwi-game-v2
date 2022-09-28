@@ -2,11 +2,41 @@
 	<head>
 		<title>Kiwi Game</title>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
-		<link rel="stylesheet" href="index.css" />
-		<script src="_.js"></script>
-		<script src="index.js"></script>
+		<link rel="stylesheet" href="./style/index.css" />
+		<link rel="stylesheet" href="./style/game.css" />
+		<link rel="stylesheet" href="./style/sidebar.css" />
+		<link rel="stylesheet" href="./style/sidebar-buttons.css" />
+		<link rel="stylesheet" href="./style/sidebar-content/your-kiwi.css" />
+		<link rel="stylesheet" href="./style/sidebar-content/collection.css" />
+		<link rel="stylesheet" href="./style/sidebar-content/inventory.css" />
+		<link rel="stylesheet" href="./style/sidebar-content/shop.css" />
+		<link rel="stylesheet" href="./style/sidebar-content/settings.css" />
+		<link rel="stylesheet" href="./style/themes/light.css" class="theme" />
+		<script src="./scripts/_.js"></script>
+		<script src="./scripts/constants.js"></script>
+		<script src="./scripts/treasures.js"></script>
+		<script src="./scripts/user.js"></script>
+		<script src="./scripts/ui.js"></script>
+		<script src="./scripts/game.js"></script>
+		<script src="./scripts/util.js"></script>
+		<script src="./scripts/sidebar.js"></script>
+		<script src="./scripts/sidebar-content/your-kiwi.js"></script>
+		<script src="./scripts/sidebar-content/inventory.js"></script>
+		<script src="./scripts/sidebar-content/shop.js"></script>
+		<script src="./scripts/sidebar-content/settings.js"></script>
+		<script src="./scripts/scenes/scene-add-points.js"></script>
+		<script src="./scripts/scenes/scene-game-over.js"></script>
+		<script src="./scripts/scenes/scene-jackpot.js"></script>
+		<script src="./scripts/scenes/scene-level-down.js"></script>
+		<script src="./scripts/scenes/scene-level-up.js"></script>
+		<script src="./scripts/scenes/scene-nothing.js"></script>
+		<script src="./scripts/scenes/scene-null.js"></script>
+		<script src="./scripts/scenes/scene-subtract-points.js"></script>
+		<script src="./scripts/scenes/scene-treasure.js"></script>
 	</head>
 	<body>
+		<div id="background"></div>
+		<div id="sidebar-background"></div>
 		<div id="game">
 			<div id="scene"></div>
 			<div id="story"></div>
@@ -16,8 +46,55 @@
 				<div id="button-keep-going" class="button" onclick="buttonKeepGoing();"></div>
 				<div id="button-stop" class="button" onclick="buttonStop();"></div>
 				<div id="button-play-again" class="button" onclick="buttonPlayAgain();"></div>
+				<div id="no-coins-to-play" class="sad">You need 5 coins to play.</div>
 			</div>
 			<div id="stats"></div>
+		</div>
+		<div id="sidebar">
+			<div id="sidebar-back" onclick="hideSidebarContent();"></div>
+			<div id="sidebar-coins" class="sidebar-button happy"></div>
+			<div id="sidebar-your-kiwi" class="sidebar-button" onclick="buttonYourKiwi();"></div>
+			<div id="sidebar-collection" class="sidebar-button" onclick="buttonCollection();"></div>
+			<div id="sidebar-inventory" class="sidebar-button" onclick="buttonInventory();"></div>
+			<div id="sidebar-shop" class="sidebar-button" onclick="buttonShop();"></div>
+			<div id="sidebar-settings" class="sidebar-button" onclick="buttonSettings();"></div>
+			<div id="sidebar-more" class="sidebar-button" onclick="buttonSidebarMore();"></div>
+			<div id="sidebar-less" class="sidebar-button" onclick="buttonSidebarLess();"></div>
+			<div id="sidebar-content-your-kiwi" class="sidebar-content">
+				Your Kiwi
+				<div id="depth-toggle" class="your-kiwi-editor-button" onclick="buttonDepthToggle();"></div>
+				<div id="remove-all-ornaments" class="your-kiwi-editor-button" onclick="buttonRemoveAllOrnaments();"></div>
+				<div id="your-kiwi" ondrop="dropTreasureOnKiwi(event);" ondragover="event.preventDefault();"></div>
+				<div id="your-kiwi-inventory-window">
+					<table id="your-kiwi-inventory-table" class="inventory-table" cellspacing="6"></table>
+				</div>
+			</div>
+			<div id="sidebar-content-collection" class="sidebar-content">
+				Collection
+				<div id="sidebar-content-collection-shelf"></div>
+			</div>
+			<div id="sidebar-content-inventory" class="sidebar-content">
+				Inventory
+				<div id="inventory-window">
+					<table id="inventory-table" class="inventory-table" cellspacing="6"></table>
+				</div>
+			</div>
+			<div id="sidebar-content-shop" class="sidebar-content">
+				Shop
+				<div id="shop-clerk"></div>
+				<div id="shop-inventory-window">
+					<table id="shop-inventory-table" class="inventory-table" cellspacing="6"></table>
+				</div>
+			</div>
+			<div id="sidebar-content-settings" class="sidebar-content">
+				Settings
+				<div id="settings">
+					Theme: <select onchange="setTheme(event.target.value);">
+						<option value="light">light</option>
+						<option value="dark">dark</option>
+					</select>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
