@@ -29,10 +29,17 @@ const TREASURE_POOL_EXCLUSIVE = [
 		"star-yellow"
 	]
 ];
+const KEEPSAKE_POOL = [
+	"blue-rose",
+	"awkward-trio"
+];
 const SIDEBAR_CONTENT_IDS = [
 	"sidebar-content-your-kiwi",
 	"sidebar-content-collection",
 	"sidebar-content-inventory",
 	"sidebar-content-shop",
+	"shop-dialog",
+	"sidebar-content-keepsakes",
+	"keepsakes-dialog",
 	"sidebar-content-settings"
 ];

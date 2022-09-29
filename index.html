@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="./style/sidebar-content/collection.css" />
 		<link rel="stylesheet" href="./style/sidebar-content/inventory.css" />
 		<link rel="stylesheet" href="./style/sidebar-content/shop.css" />
+		<link rel="stylesheet" href="./style/sidebar-content/keepsakes.css" />
 		<link rel="stylesheet" href="./style/sidebar-content/settings.css" />
 		<link rel="stylesheet" href="./style/themes/light.css" class="theme" />
 		<script src="./scripts/_.js"></script>
@@ -21,8 +22,10 @@
 		<script src="./scripts/util.js"></script>
 		<script src="./scripts/sidebar.js"></script>
 		<script src="./scripts/sidebar-content/your-kiwi.js"></script>
+		<script src="./scripts/sidebar-content/your-kiwi-dnd.js"></script>
 		<script src="./scripts/sidebar-content/inventory.js"></script>
 		<script src="./scripts/sidebar-content/shop.js"></script>
+		<script src="./scripts/sidebar-content/keepsakes.js"></script>
 		<script src="./scripts/sidebar-content/settings.js"></script>
 		<script src="./scripts/scenes/scene-add-points.js"></script>
 		<script src="./scripts/scenes/scene-game-over.js"></script>
@@ -33,6 +36,7 @@
 		<script src="./scripts/scenes/scene-null.js"></script>
 		<script src="./scripts/scenes/scene-subtract-points.js"></script>
 		<script src="./scripts/scenes/scene-treasure.js"></script>
+		<script src="./scripts/scenes/scene-keepsake.js"></script>
 	</head>
 	<body>
 		<div id="background"></div>
@@ -42,10 +46,10 @@
 			<div id="story"></div>
 			<div id="explanation"></div>
 			<div id="controls">
-				<div id="button-start" class="button" onclick="buttonStart();"></div>
-				<div id="button-keep-going" class="button" onclick="buttonKeepGoing();"></div>
-				<div id="button-stop" class="button" onclick="buttonStop();"></div>
-				<div id="button-play-again" class="button" onclick="buttonPlayAgain();"></div>
+				<div id="button-start" class="button clickable" onclick="buttonStart();"></div>
+				<div id="button-keep-going" class="button clickable" onclick="buttonKeepGoing();"></div>
+				<div id="button-stop" class="button clickable" onclick="buttonStop();"></div>
+				<div id="button-play-again" class="button clickable" onclick="buttonPlayAgain();"></div>
 				<div id="no-coins-to-play" class="sad">You need 5 coins to play.</div>
 			</div>
 			<div id="stats"></div>
@@ -57,15 +61,18 @@
 			<div id="sidebar-collection" class="sidebar-button" onclick="buttonCollection();"></div>
 			<div id="sidebar-inventory" class="sidebar-button" onclick="buttonInventory();"></div>
 			<div id="sidebar-shop" class="sidebar-button" onclick="buttonShop();"></div>
+			<div id="sidebar-keepsakes" class="sidebar-button" onclick="buttonKeepsakes();"></div>
 			<div id="sidebar-settings" class="sidebar-button" onclick="buttonSettings();"></div>
 			<div id="sidebar-more" class="sidebar-button" onclick="buttonSidebarMore();"></div>
 			<div id="sidebar-less" class="sidebar-button" onclick="buttonSidebarLess();"></div>
 			<div id="sidebar-content-your-kiwi" class="sidebar-content">
 				Your Kiwi
 				<div id="depth-toggle" class="your-kiwi-editor-button" onclick="buttonDepthToggle();"></div>
-				<div id="remove-all-ornaments" class="your-kiwi-editor-button" onclick="buttonRemoveAllOrnaments();"></div>
-				<div id="your-kiwi" ondrop="dropTreasureOnKiwi(event);" ondragover="event.preventDefault();"></div>
-				<div id="your-kiwi-inventory-window">
+				<div id="remove-all-ornaments" class="your-kiwi-editor-button clickable" onclick="buttonRemoveAllOrnaments();"></div>
+				<div id="fake-kiwi" ondrop="dropTreasureOnKiwi(event);" ondragover="event.preventDefault();">
+					<div id="your-kiwi"></div>
+				</div>
+				<div id="your-kiwi-inventory-window" ondrop="dropTreasureInInventory(event);" ondragover="event.preventDefault();">
 					<table id="your-kiwi-inventory-table" class="inventory-table" cellspacing="6"></table>
 				</div>
 			</div>
@@ -85,6 +92,17 @@
 				<div id="shop-inventory-window">
 					<table id="shop-inventory-table" class="inventory-table" cellspacing="6"></table>
 				</div>
+				<div id="shop-dialog">
+					<div id="shop-dialog-cost"></div>
+					<div id="shop-dialog-buy" class="clickable" onclick="shopBuy();"></div>
+				</div>
+			</div>
+			<div id="sidebar-content-keepsakes" class="sidebar-content">
+				Keepsakes
+				<div id="keepsakes-inventory-window">
+					<table id="keepsakes-inventory-table" class="inventory-table" cellspacing="6"></table>
+				</div>
+				<div id="keepsakes-dialog"></div>
 			</div>
 			<div id="sidebar-content-settings" class="sidebar-content">
 				Settings

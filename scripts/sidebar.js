@@ -1,11 +1,12 @@
 function showSidebarButtons() {
+	hideSidebarContent();
 	_.hide("sidebar-back");
 	_.show("sidebar-less");
 	_.hide("sidebar-more");
 	_.show("sidebar-collection");
 	_.show("sidebar-shop");
+	_.show("sidebar-keepsakes");
 	_.show("sidebar-settings");
-	SIDEBAR_CONTENT_IDS.forEach(id => _.hide(id));
 	_.el("sidebar").style.left = "calc(100% - 448px)";
 }
 
@@ -16,6 +17,7 @@ function hideSidebarButtons(delay=0) {
 		_.show("sidebar-more");
 		_.hide("sidebar-collection");
 		_.hide("sidebar-shop");
+		_.hide("sidebar-keepsakes");
 		_.hide("sidebar-settings");
 	}, delay);
 	_.el("sidebar").style.left = "calc(100% - 236px)";
@@ -51,13 +53,20 @@ function buttonCollection() {
 function buttonInventory() {
 	showSidebarContent();
 	_.show("sidebar-content-inventory");
-	updateInventory("inventory-table", 8);
+	updateMainInventory();
 }
 
 function buttonShop() {
 	showSidebarContent();
 	_.show("sidebar-content-shop");
 	updateShopInventory();
+	updateShopDialog();
+}
+
+function buttonKeepsakes() {
+	showSidebarContent();
+	_.show("sidebar-content-keepsakes");
+	updateKeepsakesInventory();
 }
 
 function buttonSettings() {

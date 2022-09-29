@@ -1,5 +1,6 @@
 function updateCoins() {
 	_.el("sidebar-coins").innerText = totalCoins;
+	updateButtons();
 }
 
 function updatePoints() {

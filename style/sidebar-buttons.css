@@ -43,9 +43,16 @@
 	background-size: 100%;
 }
 
-#sidebar-settings {
+#sidebar-keepsakes {
 	left: 224px;
 	top: calc(50% + 0px);
+	background-image: url("../images/sidebar/sidebar-keepsakes.png");
+	background-size: 100%;
+}
+
+#sidebar-settings {
+	left: 224px;
+	top: calc(50% + 200px);
 	background-image: url("../images/sidebar/sidebar-settings.png");
 	background-size: 100%;
 }

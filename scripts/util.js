@@ -1,15 +1,3 @@
-function getTreasureName(id) {
-	return TREASURES[id].name;
-}
-
-function getTreasureSet(id) {
-	return TREASURES[id].set;
-}
-
-function getTreasureImage(id) {
-	return `./images/treasure/treasure-${id}.png`;
-}
-
 function getThemeStylesheet(theme) {
 	switch (theme) {
 		case "light": return "./style/themes/light.css";
@@ -18,7 +6,7 @@ function getThemeStylesheet(theme) {
 	}
 }
 
-function makeParticle(image, x1, y1, x2, y2, duration) {
+function makeParticle(image, x1, y1, x2, y2) {
 	let particle = document.createElement("img");
 	particle.src = image;
 	particle.className = "particle";
@@ -29,5 +17,5 @@ function makeParticle(image, x1, y1, x2, y2, duration) {
 		particle.style.top = y2;
 	}, 1);
 	document.body.appendChild(particle);
-	setTimeout(() => document.body.removeChild(particle), duration);
+	setTimeout(() => document.body.removeChild(particle), 500);
 }

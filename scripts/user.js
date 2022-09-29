@@ -1,5 +1,7 @@
 let totalCoins = 100;
-let ownedTreasure = {};
+let ownedTreasure = {
+	
+};
 let shopInventory = {
 	"star-cyan": 6,
 	"star-red": 6,

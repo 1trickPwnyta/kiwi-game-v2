@@ -9,4 +9,8 @@
 	font-family: "Permanent Marker";
 	border: 6px solid black;
 	border-radius: 12px 12px;
+	min-width: 200px;
+	height: 100px;
+	cursor: hand;
+	text-align: center;
 }

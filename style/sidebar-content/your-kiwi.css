@@ -4,8 +4,19 @@
 	background-image: url("../../images/sidebar/your-kiwi/your-kiwi.png");
 	background-size: 100%;
 	position: absolute;
+	left: 0px;
+	top: 0px;
+	pointer-events: none;
+	z-index: 0;
+}
+
+#fake-kiwi {
+	width: 600px;
+	height: 600px;
+	position: absolute;
 	left: calc(50% - 300px);
 	top: 100px;
+	z-index: -2;
 }
 
 #your-kiwi-inventory-window {
@@ -22,6 +33,7 @@
 
 .placed-ornament {
 	position: absolute;
+	cursor: hand;
 }
 
 .your-kiwi-editor-button {
@@ -29,9 +41,6 @@
 	width: 100px;
 	height: 100px;
 	cursor: hand;
-	border: 6px solid black;
-	border-radius: 50px 50px;
-	mix-blend-mode: multiply;
 }
 
 #depth-toggle {
@@ -44,6 +53,6 @@
 #remove-all-ornaments {
 	left: 36px;
 	top: 236px;
-	background-image: url("../../images/sidebar/your-kiwi/depth-toggle.png");
+	background-image: url("../../images/sidebar/your-kiwi/clear-all-ornaments.png");
 	background-size: 100%;
 }

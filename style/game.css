@@ -1,3 +1,19 @@
+.clickable {
+	cursor: hand;
+}
+
+.clickable:active {
+	filter: brightness(0.8);
+}
+
+.selected {
+	filter: brightness(0.8);
+}
+
+.disabled {
+	filter: opacity(25%);
+}
+
 #game {
 	margin: 24px auto;
 	width: 636px;
@@ -53,7 +69,6 @@
 	width: 300px;
 	height: 150px;
 	position: absolute;
-	cursor: hand;
 }
 
 #button-start {

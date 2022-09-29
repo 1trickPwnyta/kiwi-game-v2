@@ -26,7 +26,7 @@ body {
 
 .particle {
 	position: absolute;
-	transition: left 1s, top 1s;
+	transition: left 0.5s, top 0.5s;
 	transition-timing-function: ease-in;
 	z-index: 100;
 }

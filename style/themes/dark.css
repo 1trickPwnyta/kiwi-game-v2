@@ -38,6 +38,10 @@
 	background-color: #222;
 }
 
+.inventory-table td {
+	background-color: #222;
+}
+
 #settings select, #settings option {
 	color: black;
 	background-color: white;

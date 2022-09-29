@@ -24,6 +24,7 @@ function execScene() {
 		case "jackpot": sceneJackpot(); break;
 		case "game over": sceneGameOver(); break;
 		case "treasure": sceneTreasure(); break;
+		case "keepsake": sceneKeepsake(); break;
 		default: alert("No such scene: " + currentScene); break;
 	}
 	
@@ -41,6 +42,11 @@ function randomScene() {
 	];
 	if (level > 1) possibleScenes.push("level down");
 	if (level == MAX_LEVEL) possibleScenes.push("jackpot");
+	let missingKeepsake = false;
+	KEEPSAKE_POOL.forEach(keepsake => {
+		if (!ownedTreasure[keepsake]) missingKeepsake = true;
+	});
+	if (missingKeepsake) possibleScenes.push("keepsake");
 	
 	currentScene = possibleScenes[_.randMax(possibleScenes.length - 1)];
 	execScene();
