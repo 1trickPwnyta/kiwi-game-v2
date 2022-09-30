@@ -5,7 +5,7 @@ function updateKeepsakesInventory() {
 		selectInventoryCell(e.target);
 		selectedKeepsakesItem = e.target.treasureId;
 		updateKeepsakesDialog();
-	}, ownedTreasure, "keepsake");
+	}, ownedTreasure, ["keepsake"]);
 }
 
 function updateKeepsakesDialog() {

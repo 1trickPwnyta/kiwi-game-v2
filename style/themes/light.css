@@ -10,6 +10,22 @@
 	color: red;
 }
 
+.message {
+	background-color: white;
+}
+
+.message-dismiss {
+	background-color: white;
+}
+
+#dialog {
+	background-color: white;
+}
+
+#dialog-dismiss {
+	background-color: white;
+}
+
 #game {
 	background-color: white;
 }

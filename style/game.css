@@ -6,12 +6,23 @@
 	filter: brightness(0.8);
 }
 
+.disabled {
+	filter: opacity(25%);
+}
+
 .selected {
 	filter: brightness(0.8);
 }
 
-.disabled {
-	filter: opacity(25%);
+.selected:before {
+	content: "";
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 75px;
+	height: 75px;
+	background-image: url("../images/sidebar/inventory/inventory-checkmark.png");
+	pointer-events: none;
 }
 
 #game {
@@ -20,6 +31,7 @@
 	height: 882px;
 	border: 12px double black;
 	border-radius: 12px 12px;
+	filter: drop-shadow(12px 12px 12px black);
 }
 
 #scene {

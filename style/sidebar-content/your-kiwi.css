@@ -1,7 +1,6 @@
 #your-kiwi {
 	width: 600px;
 	height: 600px;
-	background-image: url("../../images/sidebar/your-kiwi/your-kiwi.png");
 	background-size: 100%;
 	position: absolute;
 	left: 0px;
@@ -15,8 +14,16 @@
 	height: 600px;
 	position: absolute;
 	left: calc(50% - 300px);
-	top: 100px;
+	top: 36px;
 	z-index: -2;
+}
+
+#your-kiwi-character-window {
+	position: absolute;
+	left: 159px;
+	top: 680px;
+	overflow-x: scroll;
+	width: 900px;
 }
 
 #your-kiwi-inventory-window {

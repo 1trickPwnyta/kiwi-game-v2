@@ -1,7 +1,23 @@
+let selectedCharacter = "character-default";
 let depthToggled = false;
 
+// updates the your kiwi display
 function updateYourKiwi() {
-	_.el("fake-kiwi").innerHTML = "<div id='your-kiwi'></div>";
+	// fake kiwi is the container for your kiwi and all items so that z-index can be properly 
+	// used between your kiwi and the items
+	
+	// empty the fake kiwi container
+	_.el("fake-kiwi").innerHTML = "";
+	
+	let yourKiwi = document.createElement("div");
+	yourKiwi.id = "your-kiwi";
+	
+	// set the your kiwi image based on selected character
+	yourKiwi.style.backgroundImage = `url("${getTreasureImage(selectedCharacter)}")`;
+	
+	_.el("fake-kiwi").appendChild(yourKiwi);
+	
+	// place each item on fake kiwi
 	yourKiwiOrnaments.forEach(ornament => {
 		let placedOrnament = document.createElement("img");
 		let treasureImage = getTreasureImage(ornament.id);
@@ -18,14 +34,29 @@ function updateYourKiwi() {
 			e.dataTransfer.setData("instanceid", ornament.instanceid);
 			let dragImage = document.createElement("img");
 			dragImage.src = treasureImage;
-			e.dataTransfer.setDragImage(dragImage, 37, 37);
+			document.body.appendChild(dragImage); // bounding client rect only works in dom
+			let imageRect = dragImage.getBoundingClientRect();
+			document.body.removeChild(dragImage);
+			e.dataTransfer.setData("imageWidth", imageRect.width);
+			e.dataTransfer.setData("imageHeight", imageRect.height);
+			e.dataTransfer.setDragImage(dragImage, imageRect.width/2, imageRect.height/2);
 		};
 		_.el("fake-kiwi").appendChild(placedOrnament);
 	});
 }
 
+function updateYourKiwiCharacterInventory() {
+	let cells = updateInventory("your-kiwi-character-inventory-table", 0, false, e => {
+		selectInventoryCell(e.target);
+		selectedCharacter = e.target.treasureId;
+		updateYourKiwi();
+	}, ownedTreasure, ["character"]);
+	cells.filter(cell => cell.treasureId == selectedCharacter).forEach(cell => selectInventoryCell(cell));
+}
+
 function updateYourKiwiInventory() {
-	updateInventory("your-kiwi-inventory-table", 2, true, null, ownedTreasure, "wearable");
+	updateInventory("your-kiwi-inventory-table", 2, true, null, ownedTreasure, ["wearable"]);
+	updateYourKiwiCharacterInventory();
 }
 
 function updateDepthToggle() {

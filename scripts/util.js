@@ -1,3 +1,4 @@
+// returns the stylesheet to use for each theme
 function getThemeStylesheet(theme) {
 	switch (theme) {
 		case "light": return "./style/themes/light.css";
@@ -6,6 +7,7 @@ function getThemeStylesheet(theme) {
 	}
 }
 
+// makes an image element that moves from one location to another then disappears
 function makeParticle(image, x1, y1, x2, y2) {
 	let particle = document.createElement("img");
 	particle.src = image;

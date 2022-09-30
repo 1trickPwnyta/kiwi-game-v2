@@ -1,6 +1,8 @@
+// test user data
+
 let totalCoins = 100;
 let ownedTreasure = {
-	
+	"character-default": 1
 };
 let shopInventory = {
 	"star-cyan": 6,
@@ -20,7 +22,11 @@ let shopInventory = {
 	"cat-yellow": 12,
 	"moo-cyan": 12,
 	"moo-red": 12,
-	"moo-yellow": 12
+	"moo-yellow": 12,
+	"bowtie-black": 3,
+	"bowtie-green": 3,
+	"catears-white": 1,
+	"tail-white": 1
 };
 let yourKiwiOrnaments = [];
 let theme = "light";

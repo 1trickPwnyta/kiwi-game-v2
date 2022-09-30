@@ -10,6 +10,22 @@
 	color: #f88;
 }
 
+.message {
+	background-color: #222;
+}
+
+.message-dismiss {
+	background-color: #222;
+}
+
+#dialog {
+	background-color: #222;
+}
+
+#dialog-dismiss {
+	background-color: #222;
+}
+
 #game {
 	background-color: #222;
 }

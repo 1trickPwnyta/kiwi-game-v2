@@ -1,8 +1,10 @@
+// updates the coins display in the sidebar
 function updateCoins() {
 	_.el("sidebar-coins").innerText = totalCoins;
 	updateButtons();
 }
 
+// updates the coins display at the bottom of the game
 function updatePoints() {
 	if (currentScene != null) {
 		_.el("stats").innerText = `Coins: ${points}`
@@ -11,6 +13,7 @@ function updatePoints() {
 	}
 }
 
+// shows/hides game buttons based on scene and game state
 function updateButtons() {
 	if (currentScene == null) {
 		_.hide("button-keep-going");
@@ -38,6 +41,7 @@ function updateButtons() {
 	}
 }
 
+// starts the game
 function buttonStart() {
 	if (currentScene == null && totalCoins >= COST_PER_GAME) {
 		totalCoins -= COST_PER_GAME;
@@ -47,14 +51,17 @@ function buttonStart() {
 	}
 }
 
+// continues to a new random scene
 function buttonKeepGoing() {
 	randomScene();
 }
 
+// ends the game
 function buttonStop() {
 	endGame();
 }
 
+// returns to the start scene
 function buttonPlayAgain() {
 	currentScene = null;
 	gameOver = false;

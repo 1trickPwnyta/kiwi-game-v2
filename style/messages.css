@@ -1,0 +1,24 @@
+.message {
+	position: absolute;
+	left: -336px;
+	top: 12px;
+	max-width: 300px;
+	border: 12px double black;
+	border-left: 0px;
+	border-radius: 0px 12px 12px 0px;
+	padding: 12px;
+	font-size: 30px;
+	transition: left 0.5s, top 0.5s;
+	filter: drop-shadow(12px 12px 12px black);
+}
+
+.message-dismiss {
+	position: absolute;
+	left: calc(100% + 12px);
+	top: 0px;
+	border: 6px solid black;
+	border-left: 0px;
+	border-radius: 0px 12px 12px 0px;
+	font-size: 30px;
+	line-height: 30px;
+}

@@ -21,6 +21,7 @@
 	margin: 24px 0px;
 	transition: left 0.5s;
 	z-index: 2;
+	filter: drop-shadow(12px 12px 12px black);
 }
 
 #sidebar-back {

@@ -1,9 +1,16 @@
 <html>
+
 	<head>
+	
 		<title>Kiwi Game</title>
+		
+		<!-- styles -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
 		<link rel="stylesheet" href="./style/index.css" />
 		<link rel="stylesheet" href="./style/game.css" />
+		<link rel="stylesheet" href="./style/about.css" />
+		<link rel="stylesheet" href="./style/messages.css" />
+		<link rel="stylesheet" href="./style/dialog.css" />
 		<link rel="stylesheet" href="./style/sidebar.css" />
 		<link rel="stylesheet" href="./style/sidebar-buttons.css" />
 		<link rel="stylesheet" href="./style/sidebar-content/your-kiwi.css" />
@@ -12,14 +19,19 @@
 		<link rel="stylesheet" href="./style/sidebar-content/shop.css" />
 		<link rel="stylesheet" href="./style/sidebar-content/keepsakes.css" />
 		<link rel="stylesheet" href="./style/sidebar-content/settings.css" />
-		<link rel="stylesheet" href="./style/themes/light.css" class="theme" />
+		<link rel="stylesheet" href="./style/themes/light.css" class="theme" /> <!-- light theme is default -->
+		
+		<!-- scripts -->
 		<script src="./scripts/_.js"></script>
 		<script src="./scripts/constants.js"></script>
 		<script src="./scripts/treasures.js"></script>
 		<script src="./scripts/user.js"></script>
 		<script src="./scripts/ui.js"></script>
 		<script src="./scripts/game.js"></script>
+		<script src="./scripts/about.js"></script>
+		<script src="./scripts/dialog.js"></script>
 		<script src="./scripts/util.js"></script>
+		<script src="./scripts/messages.js"></script>
 		<script src="./scripts/sidebar.js"></script>
 		<script src="./scripts/sidebar-content/your-kiwi.js"></script>
 		<script src="./scripts/sidebar-content/your-kiwi-dnd.js"></script>
@@ -37,10 +49,23 @@
 		<script src="./scripts/scenes/scene-subtract-points.js"></script>
 		<script src="./scripts/scenes/scene-treasure.js"></script>
 		<script src="./scripts/scenes/scene-keepsake.js"></script>
+		<script src="./scripts/scenes/scene-character.js"></script>
+		
 	</head>
+	
 	<body>
+	
 		<div id="background"></div>
-		<div id="sidebar-background"></div>
+		
+		<div id="sidebar-background"></div> <!-- invisible, covers game while sidebar is open -->
+		<div id="dialog-background"></div> <!-- dims and blurs everything while dialog is open -->
+		
+		<div id="dialog"></div>
+		
+		<div id="messages"></div>
+		
+		<div id="about" class="clickable" onclick="buttonAbout();"></div>
+		
 		<div id="game">
 			<div id="scene"></div>
 			<div id="story"></div>
@@ -54,7 +79,10 @@
 			</div>
 			<div id="stats"></div>
 		</div>
+		
 		<div id="sidebar">
+			
+			<!-- sidebar buttons -->
 			<div id="sidebar-back" onclick="hideSidebarContent();"></div>
 			<div id="sidebar-coins" class="sidebar-button happy"></div>
 			<div id="sidebar-your-kiwi" class="sidebar-button" onclick="buttonYourKiwi();"></div>
@@ -65,6 +93,9 @@
 			<div id="sidebar-settings" class="sidebar-button" onclick="buttonSettings();"></div>
 			<div id="sidebar-more" class="sidebar-button" onclick="buttonSidebarMore();"></div>
 			<div id="sidebar-less" class="sidebar-button" onclick="buttonSidebarLess();"></div>
+			
+			<!-- sidebar content -->
+			
 			<div id="sidebar-content-your-kiwi" class="sidebar-content">
 				Your Kiwi
 				<div id="depth-toggle" class="your-kiwi-editor-button" onclick="buttonDepthToggle();"></div>
@@ -72,20 +103,26 @@
 				<div id="fake-kiwi" ondrop="dropTreasureOnKiwi(event);" ondragover="event.preventDefault();">
 					<div id="your-kiwi"></div>
 				</div>
+				<div id="your-kiwi-character-window">
+					<table id="your-kiwi-character-inventory-table" class="inventory-table" cellspacing=6></table>
+				</div>
 				<div id="your-kiwi-inventory-window" ondrop="dropTreasureInInventory(event);" ondragover="event.preventDefault();">
 					<table id="your-kiwi-inventory-table" class="inventory-table" cellspacing="6"></table>
 				</div>
 			</div>
+			
 			<div id="sidebar-content-collection" class="sidebar-content">
 				Collection
 				<div id="sidebar-content-collection-shelf"></div>
 			</div>
+			
 			<div id="sidebar-content-inventory" class="sidebar-content">
 				Inventory
 				<div id="inventory-window">
 					<table id="inventory-table" class="inventory-table" cellspacing="6"></table>
 				</div>
 			</div>
+			
 			<div id="sidebar-content-shop" class="sidebar-content">
 				Shop
 				<div id="shop-clerk"></div>
@@ -97,6 +134,7 @@
 					<div id="shop-dialog-buy" class="clickable" onclick="shopBuy();"></div>
 				</div>
 			</div>
+			
 			<div id="sidebar-content-keepsakes" class="sidebar-content">
 				Keepsakes
 				<div id="keepsakes-inventory-window">
@@ -104,6 +142,7 @@
 				</div>
 				<div id="keepsakes-dialog"></div>
 			</div>
+			
 			<div id="sidebar-content-settings" class="sidebar-content">
 				Settings
 				<div id="settings">
@@ -113,6 +152,9 @@
 					</select>
 				</div>
 			</div>
+			
 		</div>
+		
 	</body>
+	
 </html>

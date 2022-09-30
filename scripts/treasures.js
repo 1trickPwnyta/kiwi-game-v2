@@ -23,7 +23,44 @@ function getTreasureDesc(id) {
 	return TREASURES[id].description;
 }
 
+// treasure index
 const TREASURES = {
+	"character-default": {
+		id: "character-default",
+		name: "default kiwi",
+		set: "characters",
+		tags: ["character"]
+	},
+	"character-mint": {
+		id: "character-mint",
+		name: "mint kiwi",
+		set: "characters",
+		tags: ["character"]
+	},
+	"bowtie-black": {
+		id: "bowtie-black",
+		name: "black bow tie",
+		set: "dressup",
+		tags: ["wearable"]
+	},
+	"bowtie-green": {
+		id: "bowtie-green",
+		name: "green bow tie",
+		set: "dressup",
+		tags: ["wearable"]
+	},
+	"catears-white": {
+		id: "catears-white",
+		name: "white cat ears",
+		set: "dressup",
+		tags: ["wearable"]
+	},
+	"tail-white": {
+		id: "tail-white",
+		name: "white tail",
+		set: "dressup",
+		tags: ["wearable"]
+	},
 	"heart-cyan": {
 		id: "heart-cyan",
 		name: "cyan heart",
